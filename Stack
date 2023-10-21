@@ -1,0 +1,54 @@
+#include<stdio.h>
+int a[10];
+int top=-1,max=5;
+void push(int data)
+{
+    if(top>=max-1)
+    {
+        printf("\nstack full");
+    }
+    else
+    {
+        a[++top]=data;
+        printf("\n%d-element inserted",data);
+    }
+}
+int pop()
+{
+    if(top<0)
+    {
+        printf("\nstack underflow");
+    }
+    else
+    {
+        int x=a[top--];
+        return x;
+    }
+}
+void display()
+{
+    printf("\n");
+    for(int i=0;i<=top;i++)
+    {
+        printf("%d\t",a[i]);
+    }
+}
+int main()
+{
+    push(10);
+    push(20);
+    push(30);
+    push(40);
+    push(50);
+    push(60);
+    push(70);
+    printf("\ntop of the element is %d\n",a[top]);
+    display();
+    int z=top;
+    while(z>=0)
+    {
+        printf("\n%d is popped\n",pop());
+        z--;
+    }
+
+}
